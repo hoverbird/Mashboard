@@ -1,5 +1,9 @@
 module Mashboard
-  ['lib/mashboard', 'erb', 'sinatra'].each {|lib| require lib}
+  ['config/mashboard', 'erb', 'sinatra'].each {|lib| require lib}
+  
+  set :root, File.expand_path(File.dirname(__FILE__)) + '/app'
+  set :public, Proc.new { File.join(root, "javascripts") }
+  set :views, Proc.new { File.join(root, "views") }
   
   get '/' do
     erb :index

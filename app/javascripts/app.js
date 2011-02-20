@@ -1,4 +1,7 @@
-var GmailData = Backbone.Model.extend({});
+var GmailData = Backbone.Model.extend({
+  url: '/gmail'
+});
+
 var gmail = new GmailData();
 _.extend(gmail, Backbone.Events);
 
@@ -10,6 +13,9 @@ gmail.bind('change:total', function(model) {
   $('#totalCount').html(model.get('total'));
 });
 
+gmail.bind('poll:start', function(model) {
+  $('#totalCount').html(model.get('total'));
+});
 
 function pollGmail() {
   gmail.trigger("poll:start", "polling!");
@@ -26,4 +32,8 @@ function handleGmailResponse(data) {
   gmail.set(data);
 }
 
-pollGmail();
+function alertError(msg) {
+  alert(msg);
+}
+
+Backbone.sync('read', gmail, handleGmailResponse, alertError);
