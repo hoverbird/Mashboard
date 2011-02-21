@@ -1,22 +1,3 @@
-var GmailData = Backbone.Model.extend({
-  url: '/gmail'
-});
-
-var gmail = new GmailData();
-_.extend(gmail, Backbone.Events);
-
-gmail.bind('change:unread', function(model) {
-  $('#unreadCount').html(model.get('unread'));
-});
-
-gmail.bind('change:total', function(model) {
-  $('#totalCount').html(model.get('total'));
-});
-
-gmail.bind('poll:start', function(model) {
-  $('#totalCount').html(model.get('total'));
-});
-
 function pollGmail() {
   gmail.trigger("poll:start", "polling!");
   $.ajax({
@@ -32,8 +13,13 @@ function handleGmailResponse(data) {
   gmail.set(data);
 }
 
-function alertError(msg) {
-  alert(msg);
+function alertError(error) {
+  console.log("error", error);
 }
 
-Backbone.sync('read', gmail, handleGmailResponse, alertError);
+$(function() {  
+  Backbone.sync('read', gmail, handleGmailResponse, alertError);
+  // Backbone.sync('read', tracker, handleTrackerResponse, alertError);
+  // stories.fetch();
+  
+});

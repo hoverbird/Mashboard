@@ -29,8 +29,8 @@ GEM
       mail (>= 2.2.1)
       shared-mime-info
     shared-mime-info (0.1)
-    sinatra (0.9.4)
-      rack (>= 0.9.1)
+    sinatra (1.0)
+      rack (>= 1.0)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
 
@@ -42,4 +42,4 @@ DEPENDENCIES
   mime
   pivotal-tracker
   ruby-gmail
-  sinatra
+  sinatra (= 1.0)

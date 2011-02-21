@@ -10,7 +10,9 @@
 <!-- <script src="javascripts/js.js" type="text/javascript" charset="utf-8"></script> -->
 <!-- <script src="javascripts/react.js" type="text/javascript" charset="utf-8"></script> -->
 
-<script src="gmail_data.js" type="text/javascript" charset="utf-8"></script>
+<script src="models/gmail_data.js" type="text/javascript" charset="utf-8"></script>
+<script src="models/tracker_data.js" type="text/javascript" charset="utf-8"></script>
+
 <script src="app.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
@@ -20,7 +22,12 @@
     <h1>Mashboard</h1>
   
     <div>Unread: <span id="unreadCount">n/a</span></div>
-    <div>Total: <span id="totalCount">n/a</span></div>
+    <div>Total:  <span id="totalCount">n/a</span></div>
+    
+    <div id="tracker">
+      <ul class="iteration">
+      </ul>
+    </div>
   </div>
   
 </body>
